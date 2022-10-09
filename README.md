@@ -4,4 +4,4 @@ This Repository contains Web Development Task to be completed as a part of the I
 
 
 ## LICENSE
-[MIT LICENSE](LICENSE)
+[MIT LICENSE](LICENSE.md)
