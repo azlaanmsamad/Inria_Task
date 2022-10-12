@@ -13,14 +13,12 @@ class Config:
     """
     # Default settings
     FLASK_ENV = 'development'
+    SECRET_KEY = '5791628bb0b13ce0c676dfde280ba245'
     DEBUG = False
     TESTING = False
     WTF_CSRF_ENABLED = True
 
-    # Settings applicable to all environments
-    SECRET_KEY = os.getenv('SECRET_KEY', default='A very terrible secret key.')
-
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
 
     CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL ')
     RESULT_BACKEND = os.getenv('RESULT_BACKEND')
@@ -28,10 +26,6 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'dev.db')
-
-
-# SQLALCHEMY_DATABASE_URI = f"postgresql+psycopg2://postgres:{os.getenv('DB_PASSWORD')}@postgres:5432/dev_db"
 
 class TestingConfig(Config):
     TESTING = True

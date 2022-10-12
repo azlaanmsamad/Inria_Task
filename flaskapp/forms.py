@@ -4,9 +4,7 @@ from wtforms.validators import DataRequired, Length
 
 
 class UserForm(FlaskForm):
-    firstname = StringField('First Name', validators=[DataRequired(), Length(min=2, max=20)])
-    middlename = StringField('Middle Name')
-    lastname = StringField('Last Name', validators=[DataRequired(), Length(min=2, max=20)])
+    name = StringField('Name', validators=[DataRequired(), Length(min=2, max=20)])
 
     submit = SubmitField('Save User Information')
 
