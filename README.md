@@ -32,10 +32,9 @@ This Repository contains Web Development Task to be completed as a part of the I
 ## Approach
 ### Workflow:
 1. Create a Frontend UI where the user can submit a particular data for eg. Name of the User.
-2. Trigger a REST API to pass this data to the Message Queue (MQ) using the POST method.
-3. This MQ triggers a job which looks at the # of data points in the queue and displays the last five data points.
-4. The user data is also stored in the Database.
-5. Finally, another REST API is used which clears all the data in the MQ. 
+2. The user's detail is then stored in the in-memory database.
+3. The top 5 most recent added Users can be checked by clicking the Users (In Memory) icon.
+4. Finally, another REST API is used which clears all the data by clicking on Clear button.
 
 
 ### Technologies Used: 

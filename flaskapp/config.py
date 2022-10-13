@@ -18,7 +18,10 @@ class Config:
     TESTING = False
     WTF_CSRF_ENABLED = True
 
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
+    #SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
+
+    # In memory DataBase
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
     CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL ')
     RESULT_BACKEND = os.getenv('RESULT_BACKEND')

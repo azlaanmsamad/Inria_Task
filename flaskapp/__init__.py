@@ -7,7 +7,8 @@ app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
 db = SQLAlchemy(app)
 
-#to avoid circular import
+
+# to avoid circular import
 from flaskapp import routes
 from flaskapp.models import Name
 

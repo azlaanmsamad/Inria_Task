@@ -1,4 +1,5 @@
-from flask import render_template, url_for, redirect, flash
+import pdb
+from flask import render_template, url_for, redirect, flash, request
 from flaskapp import app
 from flaskapp.forms import UserForm, AddressForm
 from flaskapp.models import Name, Email, Address
@@ -26,20 +27,27 @@ def home():
     return render_template('home.html')
 
 
-@app.route("/database")
+@app.route("/database", methods=['GET'])
 def display_from_db():
     try:
-        users = Name.query.all()
+        users = Name.query.order_by(Name.date_posted.desc())[:5]
+        print(users)
         return render_template('display_db.html', users=users)
     except:
+        print('hello')
         return render_template('display_db.html')
 
 
-@app.route("/address", methods=['GET', 'POST'])
-def address():
-    form = AddressForm()
-    if form.validate_on_submit():
-        new_address = Address(address=form.address.data)
-        db.session.add(new_address)
-        db.session.commit()
-        flash('Your address has been added.', 'success')
+@app.route("/clear", methods=['GET', 'POST'])
+def clear():
+    '''try:
+        Name.query.delete()
+        #return redirect(url_for('home'))
+        return render_template('display_db.html')
+    except:
+        return redirect(url_for('home'))'''
+
+    Name.query.delete()
+    db.session.commit()
+    # return redirect(url_for('home'))
+    return redirect(url_for('display_from_db'))
