@@ -25,14 +25,7 @@ This Repository contains Web Development Task to be completed as a part of the I
 
 ## Uses
 1. After opening the browser a welcome page is displayed.
-2. To add a user's name go to the Register tab and add the name. This will also store it in the database.
-3. Click on Users (DB) tab to see the user name's that has been added to the database up until now.
-
-
-## Approach
-### Workflow:
-1. Create a Frontend UI where the user can submit a particular data for eg. Name of the User.
-2. The user's detail is then stored in the in-memory database.
+2. To add a user's name go to the Register tab and add the name. This will also store it in the in-memory database.
 3. The top 5 most recent added Users can be checked by clicking the Users (In Memory) icon.
 4. Finally, another REST API is used which clears all the data by clicking on Clear button.
 
