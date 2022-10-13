@@ -29,15 +29,6 @@ This Repository contains Web Development Task to be completed as a part of the I
 3. Click on Users (DB) tab to see the user name's that has been added to the database up until now.
 
 
-## Approach
-### Workflow:
-1. Create a Frontend UI where the user can submit a particular data for eg. Name of the User.
-2. Trigger a REST API to pass this data to the Message Queue (MQ) using the POST method.
-3. This MQ triggers a job which looks at the # of data points in the queue and displays the last five data points.
-4. The user data is also stored in the Database.
-5. Finally, another REST API is used which clears all the data in the MQ. 
-
-
 ### Technologies Used: 
 Flask, RabbitMQ/Redis, SQLAlchemy 
 
