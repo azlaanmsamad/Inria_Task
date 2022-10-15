@@ -1,2 +1,10 @@
+
+# Idea files inherent to PyCharm
 /.idea
-/flaskapp/__pycache__
+
+# Ignore the __pycache__ folder
+**/__pycache__
+
+# Database
+*.db
+*.sqlite
