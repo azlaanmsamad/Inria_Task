@@ -29,25 +29,13 @@ def home():
 
 @app.route("/database", methods=['GET'])
 def display_from_db():
-    try:
-        users = Name.query.order_by(Name.date_posted.desc())[:5]
-        print(users)
-        return render_template('display_db.html', users=users)
-    except:
-        print('hello')
-        return render_template('display_db.html')
+    users = Name.query.order_by(Name.date_posted.desc())[:5]
+    return render_template('display_db.html', users=users)
 
 
-@app.route("/clear", methods=['GET', 'POST'])
+@app.route("/clear", methods=['GET'])
 def clear():
-    '''try:
-        Name.query.delete()
-        #return redirect(url_for('home'))
-        return render_template('display_db.html')
-    except:
-        return redirect(url_for('home'))'''
 
     Name.query.delete()
     db.session.commit()
-    # return redirect(url_for('home'))
-    return redirect(url_for('display_from_db'))
+    return redirect(url_for('home'))
