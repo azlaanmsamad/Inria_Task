@@ -1,0 +1,102 @@
+{
+	"users":[
+		{
+			"name":"guest",
+			"password_hash":"t6OOdyts3Z2IcNsyG54IvS6VwRg1cT6vPo2rT8ovZM/CFQFj",
+			"hashing_algorithm":"rabbit_password_hashing_sha256",
+			"tags":"administrator"
+		}
+	],
+	"vhosts":[
+		{
+			"name":"/"
+		}
+	],
+	"permissions":[
+		{
+			"user":"guest",
+			"vhost":"/",
+			"configure":".*",
+			"write":".*",
+			"read":".*"
+		}
+	],
+	
+	"topic_permissions":[],
+	
+	"parameters":[],
+	
+	"global_parameters":[
+		{
+			"name":"cluster_name",
+			"value":"rabbit@DESKTOP-OVJQNHD.localdomain"
+		}
+	],
+	
+	"policies":[],
+	
+	"queues":[
+		{
+			"name":"sensor_3",
+			"vhost":"/",
+			"durable":true,
+			"auto_delete":false,
+			"arguments":{"x-queue-type":"classic"}
+		},
+
+		{
+			"name":"sensor_1",
+			"vhost":"/",
+			"durable":true,
+			"auto_delete":false,
+			"arguments":{"x-queue-type":"classic"}
+		},
+		{
+			"name":"sensor_2",
+			"vhost":"/",
+			"durable":true,
+			"auto_delete":false,
+			"arguments":{"x-queue-type":"classic"}
+		}
+	],
+
+	"exchanges":[
+		{
+			"name":"exchanger",
+			"vhost":"/",
+			"type":"direct",
+			"durable":true,
+			"auto_delete":false,
+			"internal":false,
+			"arguments":{}
+		}
+	],
+
+	"bindings":[
+		{
+			"source":"exchanger",
+			"vhost":"/",
+			"destination":"sensor_1",
+			"destination_type":"queue",
+			"routing_key":"first_sensor",
+			"arguments":{}
+		},
+
+		{
+			"source":"exchanger",
+			"vhost":"/",
+			"destination":"sensor_2",
+			"destination_type":"queue",
+			"routing_key":"second_sensor",
+			"arguments":{}
+		},
+		{
+			"source":"exchanger",
+			"vhost":"/",
+			"destination":"sensor_3",
+			"destination_type":"queue",
+			"routing_key":"third_sensor",
+			"arguments":{}
+		}
+	]
+}

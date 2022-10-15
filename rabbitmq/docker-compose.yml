@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  inriamq:
+    image: rabbitmq:3-management
+    hostname: rabbit
+    volumes:
+      - ./definitions.json:/etc/rabbitmq/definitions.json
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+
+
