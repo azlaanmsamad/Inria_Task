@@ -57,6 +57,7 @@ This Repository contains Web Development Task to be completed as a part of the I
 4. Finally, another REST API is used which clears all the data by clicking on Clear button.
 
 
+
 ### Technologies Used: 
 Flask, RabbitMQ/Redis, SQLAlchemy 
 
