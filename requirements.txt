@@ -1,10 +1,13 @@
 alembic==1.4.0
+antiorm==1.2.1
 beautifulsoup4==4.8.2
 certifi==2019.11.28
 chardet==3.0.4
 charset-normalizer==2.1.1
 Click==7.0
 colorama==0.4.5
+db==0.1.1
+db-sqlite3==0.0.1
 directory-tree==0.0.2
 Flask==1.1.1
 Flask-Migrate==2.5.2
