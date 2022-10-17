@@ -26,6 +26,28 @@ This Repository contains Web Development Task to be completed as a part of the I
 - Expose a REST API with a one method _clear_ that cleans all the data in the memory.
 - Dockerizer the different functionalities.
 
+## Sequence Diagram
+
+```mermaid
+  sequenceDiagram
+    participant User  
+    participant WebApp 
+    participant Exchange 
+    participant Queue
+    participant Consumer
+    participant Database 
+    
+    User->>WebApp : HTTP POST Request Input user's name
+    WebApp-->>User : Response OK
+    WebApp->>Exchange : Produce Message
+    Exchange->>Queue : Add Message
+    Queue->>Consumer : Send Message
+    Consumer-->>Queue : Acknowledge
+    Consumer->>Database : Store Username
+    Database-->>Consumer : Response OK
+```
+
+
 ## RabbitMQ
 
 ### RabbitMQ Docker Launch
