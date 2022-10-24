@@ -30,21 +30,40 @@ This Repository contains Web Development Task to be completed as a part of the I
 
 ```mermaid
   sequenceDiagram
-    participant User  
-    participant WebApp 
-    participant Exchange 
-    participant Queue
-    participant Consumer
+    participant UI  
+    participant WebApp
+    participant Sensor_1
+    participant Sensor_2
+    participant Sensor_3
+    participant Message Broker
+    participant Consumer_1
+    participant Consumer_2
+    participant Consumer_3
     participant Database 
     
-    User->>WebApp : HTTP POST Request Input user's name
-    WebApp-->>User : Response OK
-    WebApp->>Exchange : Produce Message
-    Exchange->>Queue : Add Message
-    Queue->>Consumer : Send Message
-    Consumer-->>Queue : Acknowledge
-    Consumer->>Database : Store Username
-    Database-->>Consumer : Response OK
+    UI->>WebApp : HTTP POST Request Input user's name
+    WebApp-->>UI : Response OK
+    WebApp->>Sensor_1 : Forward Request 1
+    WebApp->>Sensor_2 : Forward Request 2
+    WebApp->>Sensor_3 : Forward Request 3
+    Sensor_1->>Message Broker: Send Message 1
+    Sensor_2->>Message Broker: Send Message 2
+    Sensor_3->>Message Broker: Send Message 3
+    Message Broker->>Consumer_1: Consume Messgae 1
+    Message Broker->>Consumer_2: Consume Messgae 2
+    Message Broker->>Consumer_3: Consume Messgae 3
+    Consumer_1-->>Message Broker: Acknowledge
+    Consumer_2-->>Message Broker: Acknowledge
+    Consumer_3-->>Message Broker: Acknowledge
+    
+    Consumer_1->>Database : Store Username
+    Database-->>Consumer_1 : Response OK
+    
+    Consumer_2->>Database : Clear Username
+    Database-->>Consumer_2 : Response OK
+    
+    Consumer_3->>Database : Update Username
+    Database-->>Consumer_3 : Response OK
 ```
 
 
