@@ -17,6 +17,8 @@ This Repository contains Web Development Task to be completed as a part of the I
 - Database Integration:
   - [x] Add database support (new feature branch).
   - [x] Write the data into the database.
+- Dockerize:
+  - [x] Dockerize the Flask App using Dockerfile and docker-compose.yml
 - CI Setup:
   - [ ] https://github.com/azlaanmsamad/Inria_Task/issues/3  Not Priority.
 
@@ -32,8 +34,7 @@ This Repository contains Web Development Task to be completed as a part of the I
   sequenceDiagram
     participant User  
     participant WebApp 
-    participant Exchange 
-    participant Queue
+    participant Message Broker
     participant Consumer
     participant Database 
     
@@ -46,7 +47,15 @@ This Repository contains Web Development Task to be completed as a part of the I
     Consumer->>Database : Store Username
     Database-->>Consumer : Response OK
 ```
+## Dockerized Flask APP
 
+## Installation
+1. Clone the repository and go the project root directory.
+2. Install docker to use docker CLI.
+3. On the CLI, in the root directory type `docker-compose-up`. This will build the image and load the flaskapp.
+4. Open a web browser, and type `localhost:5000` to access the webpage.
+
+For using the webpage, see the `WebApp Usage` section below. 
 
 ## RabbitMQ
 

@@ -2,5 +2,7 @@
 *.sqlite
 *.db
 **/__pycache__
+/test
+*/.pytest_cache
 
 

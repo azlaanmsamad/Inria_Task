@@ -18,8 +18,6 @@ class Config:
     TESTING = False
     WTF_CSRF_ENABLED = True
 
-    #SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
-
     # In memory DataBase
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
@@ -33,10 +31,11 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     TESTING = True
     WTF_CSRF_ENABLED = False
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'test.db')
+    FLASK_ENV = 'development'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
 
 class ProductionConfig(Config):
     FLASK_ENV = 'production'
     # Postgres database URL has the form postgresql://username:password@hostname/database
-    SQLALCHEMY_DATABASE_URI = os.getenv('PROD_DATABASE_URl', default="sqlite:///" + os.path.join(basedir, 'prod.db'))
+    #SQLALCHEMY_DATABASE_URI = os.getenv('PROD_DATABASE_URl', default="sqlite:///" + os.path.join(app.config["BASE_DIR"], 'prod.db'))
