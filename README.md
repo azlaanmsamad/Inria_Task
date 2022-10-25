@@ -19,6 +19,8 @@ This Repository contains Web Development Task to be completed as a part of the I
   - [x] Write the data into the database.
 - Dockerize:
   - [x] Dockerize the Flask App using Dockerfile and docker-compose.yml
+- RabbitMQ with Python client PIKA:
+  - [x] Using a python client to send and receive messages using an exchanger and a queue. Each queue is used to handle data from different sensors.
 - CI Setup:
   - [ ] https://github.com/azlaanmsamad/Inria_Task/issues/3  Not Priority.
 
@@ -58,6 +60,15 @@ This Repository contains Web Development Task to be completed as a part of the I
 For using the webpage, see the `WebApp Usage` section below. 
 
 ## RabbitMQ
+
+## RabbitMQ with Python client PIKA
+1. Go to the `rabbitmq_pika` directory of the project. 
+2. Open two terminal, in the first one run `python receive.py`
+3. In the second terminal, type `python send.py 1 2 3`. 
+
+The 1, 2 and 3 are the arguments refer to the data from 3 different sensors. Then a random number is generated which is sent as a message to their corresponding queues via an exchanger.
+
+
 
 ### RabbitMQ Docker Launch
 1. Install `docker`
